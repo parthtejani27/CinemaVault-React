@@ -21,7 +21,9 @@ const Movies = ({ handleAddToWatchList, handleRemoveWatchList, watchList }) => {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=9ea3721d8aaa5eb5ffecbd13c5b79672&language=en-US&page=${pageNo}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=${
+          import.meta.env.VITE_API_KEY
+        }&language=en-US&page=${pageNo}`
       )
       .then((res) => {
         console.log(res.data);
@@ -73,5 +75,3 @@ const Movies = ({ handleAddToWatchList, handleRemoveWatchList, watchList }) => {
 };
 
 export default Movies;
-
-// https://api.themoviedb.org/3/movie/popular?api_key=9ea3721d8aaa5eb5ffecbd13c5b79672&language=en-US&page=1
